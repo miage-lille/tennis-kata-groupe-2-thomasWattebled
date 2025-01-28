@@ -1,7 +1,7 @@
 import { Player } from './types/player';
 import { Point, PointsData, Score } from './types/score';
-// import { none, Option, some, match as matchOpt } from 'fp-ts/Option';
-// import { pipe } from 'fp-ts/lib/function';
+ import { none, Option, some, match as matchOpt } from 'fp-ts/Option';
+ import { pipe } from 'fp-ts/lib/function';
 
 // -------- Tooling functions --------- //
 
@@ -60,3 +60,6 @@ export const scoreWhenPoint = (current: PointsData, winner: Player): Score => {
 export const score = (currentScore: Score, winner: Player): Score => {
   throw new Error('not implemented');
 };
+
+
+

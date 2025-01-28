@@ -1,8 +1,8 @@
 import { describe, expect, test } from '@jest/globals';
-import { otherPlayer, playerToString } from '..';
-// import * as fc from 'fast-check';
-
-// import * as G from './generators';
+import { otherPlayer, playerToString, scoreWhenDeuce } from '..';
+import * as fc from 'fast-check';
+import * as G from './generators';
+import { advantage } from '../types/score';
 
 describe('Tests for tooling functions', () => {
   test('Given playerOne when playerToString', () => {
@@ -15,6 +15,16 @@ describe('Tests for tooling functions', () => {
 });
 
 describe('Tests for transition functions', () => {
+  
+test('Given deuce, score is advantage to winner', () => {
+  fc.assert(
+    fc.property(G.getPlayer(), winner => {
+      const score = scoreWhenDeuce(winner);
+      const scoreExpected = advantage(winner);
+      expect(score).toStrictEqual(scoreExpected);
+    })
+  );
+});
   // test('Given deuce, score is advantage to winner', () => {
   //   console.log('To fill when we will know how represent Deuce');
   // });
