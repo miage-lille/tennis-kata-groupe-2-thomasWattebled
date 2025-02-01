@@ -101,6 +101,8 @@ export const advantage = (player: Player): Advantage => ({
   player: player
 })
 
+
+
 function pointToString(point: Point) {
   return point.kind
 }
